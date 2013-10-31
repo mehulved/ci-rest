@@ -7,10 +7,15 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 	}
 
-	function index()
+	function cache()
 	{
 		$this->load->driver('cache',array('adaptor' => 'memcached'));
         $this->cache->memcached->save('foo', 'bar', 86400);
+        var_dump('Response');
+    }
+    
+    function nocache()
+	{
         var_dump('Response');
 	}
 }
